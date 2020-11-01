@@ -25,7 +25,7 @@ function generatePassword() {
   var passwordLength = prompt(" What length you want for your password? Select a number between 8 and 128.");
   if (Number(passwordLength < 8) | Number(passwordLength > 128) | isNaN(passwordLength)) {
     alert("Please enter a number between 8 and 128!");
-    return();
+    return;
   }
   // This variable ask if the user want Uppercase Letters in the password, and if so, the array that contains this type of data "upper" is assigned to selectedChrs variable. 
   var upperLetters = confirm(" Do you want upper letters?");
@@ -45,7 +45,7 @@ function generatePassword() {
     selectedChrs += nrs;
 
   }
-  
+
   // This variable ask if the user want Special Characters in the password, and if so, the array that contains this type of data "spchr" is assigned to selectedChrs variable. 
   var specialCharacters = confirm(" Do you want special characters?");
   if (specialCharacters) {
@@ -57,7 +57,7 @@ function generatePassword() {
   }
   //This statement verify if the password is between 8 and 128...
   if (Number(passwordLength >= 8) && Number(passwordLength <= 128)) {
-     // ...if so, the forloop goes through the characters saved in selectedChrs variable and random generate a password which is equal to passwordlength variable and is assigned to the newpassword variable. 
+    // ...if so, the forloop goes through the characters saved in selectedChrs variable and random generate a password which is equal to passwordlength variable and is assigned to the newpassword variable. 
     for (var i = 0; i < passwordLength; i++) {
       newPassword += selectedChrs.charAt(Math.floor(Math.random() * selectedChrs.length));
     };
