@@ -2,10 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
 
-var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-var nrs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-var spchar = ["@", "%", "+", " ", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}" , "{" , "]" , "[", "~", "-", "_", "."]
+var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var nrs = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var spchar = ["@", "%", "+", "/", "'", "!", "#", "$", "^", "?", ":", ",", ")", "(", "}" , "{" , "[" , "]", "~", "-", "_", "."];
 
 
 generateBtn.addEventListener("click", generatePassword);
@@ -23,33 +23,33 @@ function generatePassword() {
   var newPassword = '';
   // This variable alert the user to enter a number between 8 and 128 if the user introduced a number outside of the mentioned interval or not a numberical character and returns to the generatepassword function. 
   var passwordLength = prompt(" What length you want for your password? Select a number between 8 and 128.");
-  if (Number(passwordLength < 8) | Number(passwordLength > 128) | isNaN(passwordLength)) {
+  if (Number(passwordLength < 8) || Number(passwordLength > 128) || isNaN(passwordLength)) {
     alert("Please enter a number between 8 and 128!");
     return;
   }
   // This variable ask if the user want Uppercase Letters in the password, and if so, the array that contains this type of data "upper" is assigned to selectedChrs variable. 
   var upperLetters = confirm(" Do you want upper letters?");
   if (upperLetters) {
-    selectedChrs += upper;
+    selectedChrs += upper.join("");
   }
 
   // This variable ask if the user want Lowercase Letters in the password, and if so, the array that contains this type of data "lower" is assigned to selectedChrs variable. 
   var lowerLetters = confirm(" Do you want lower letters?");
   if (lowerLetters) {
-    selectedChrs += lower;
+    selectedChrs += lower.join("");
   }
 
   // This variable ask if the user want numbers in the password, and if so, the array that contains this type of data "nrs" is assigned to selectedChrs variable. 
   var numbers = confirm(" Do you want numbers?");
   if (numbers) {
-    selectedChrs += nrs;
+    selectedChrs += nrs.join("");
 
   }
 
   // This variable ask if the user want Special Characters in the password, and if so, the array that contains this type of data "spchr" is assigned to selectedChrs variable. 
   var specialCharacters = confirm(" Do you want special characters?");
   if (specialCharacters) {
-    selectedChrs += spchar;
+    selectedChrs += spchar.join("");
   }
   // This ask the user to introduce at least one type of data for the password if the user did't accept none of the options. 
   if (selectedChrs === '') {
